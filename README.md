@@ -1,6 +1,6 @@
 # 🌸 Dulces Pétalos - Catálogo de Floristería
 
-Aplicación web desarrollada con **React + Vite +i18n y TypeScript** para mostrar el catálogo de productos de la floristería Dulces Pétalos. 
+Aplicación web desarrollada con **React, TypeScript, Vite e i18n** para mostrar el catálogo de productos de la floristería Dulces Pétalos. 
 
 Se puede consultar en español y en inglés.
 
