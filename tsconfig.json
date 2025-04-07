@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    
+    /* Visit https://aka.ms/tsconfig to read more about this */
+   
+    /* Language and Environment */
+    "target": "ESNext",  
+
+    /* Modules */
+    "module": "ESNext",                                
+    
+    "esModuleInterop": true, 
+    
+    "forceConsistentCasingInFileNames": true,  
+    "strict": false,       
+    "skipLibCheck": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "jsx": "react-jsx",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "moduleResolution": "Node",
+    "allowSyntheticDefaultImports": true,
+    "types": ["vitest","vitest/globals"],   
+  },
+  "include": ["src", "i18n.ts"]
+}
