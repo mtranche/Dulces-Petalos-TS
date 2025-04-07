@@ -230,7 +230,7 @@ DULCES-PETALOS/
 
 Todos los productos se obtienen desde las 2 API's proporcionadas.
 
-Por defecto usamos la v2 que es más completa, pero se puede cambiar la url la v1 en el fetch.
+Por defecto usamos la v2 que es más completa, pero se puede cambiar la url a la versión v1 en el fetch.
 
 
 ```bash
