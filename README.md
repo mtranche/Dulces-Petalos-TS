@@ -18,7 +18,7 @@ Incluye vista de listado y detalle de cada planta, con diseño responsive y acce
 - [SASS](https://sass-lang.com/)
 - [React Router](https://reactrouter.com/)
 - [Vitest](https://vitest.dev/) + [React Testing Library](https://testing-library.com/)
- -[i18next para la gestión de traducciones](https://www.i18next.com/)
+- [i18next para la gestión de traducciones](https://www.i18next.com/)
 
 ---
 
