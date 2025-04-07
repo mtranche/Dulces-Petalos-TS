@@ -1,0 +1,130 @@
+@use "../base/vars" as *;
+
+.product-detail {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;   
+  background-color: $neutral-200;
+  //text-align: center;//
+  
+  .detail-content {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;  
+    margin-top: $space-md;
+    gap:$space-3xl;
+
+    .image {
+      img {
+        width: 100%;//
+        min-width: 580px;//
+        height: 500px;
+        border-radius: 24px;
+        object-fit: cover;
+        
+      }
+    }
+
+    .info {
+      flex: 1 1 560px;
+      display: flex;
+      flex-direction: column;
+     // align-items: center; //
+      //text-align: center; //
+
+      .binomial {
+        margin-top:$space-md;
+        color: $neutral-800;
+      }
+
+      .product-price {
+        margin-top:$space-lg;
+      }
+
+      .details {
+        list-style: none;
+        padding-left: $space-md;
+        color: $neutral-1000;
+        margin-top: $space-2xl;
+
+        li {
+          margin-bottom: $space-2xs;
+        }
+      }
+
+      .add-to-cart {
+        margin-top: $space-md;
+        background-color: $accent-600;
+        color: $neutral-100;
+        padding: $space-sm $space-md;
+        border: none;
+        border-radius: $radius-xxl;
+        font-weight: 500;
+        cursor: pointer;
+        align-self: flex-start;
+        transition: background 0.2s ease;
+
+        &:hover {
+          background-color:$accent-400;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .product-detail {
+    padding: 0 $space-md;   
+
+    .detail-content {
+      flex-direction: column;
+      gap: $space-2xl;
+      margin-top: 0;   
+
+      .image img {
+        width: calc(100vw - 32px);
+        height: auto;
+        max-height: 250px;
+        border-radius: $radius-4xl;
+      }
+
+      .info {
+        width: 100%;
+
+        h1 {
+          margin: 6px 0 12px 0;
+        }
+
+        .price {
+          margin-top: $space-xl;
+        }
+
+        .details {
+          padding-left: 0;
+          margin-top: $space-3xl;
+
+          li {
+            margin-bottom:$space-md;
+          }
+        }
+
+        .add-to-cart {
+          width: 100%;
+          text-align: center;
+          margin-top: $space-3xs;
+          font-size: 14px;
+          padding: 12px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $breakpoint-sm) and (max-width: $breakpoint-md) {
+  .product-detail {
+    width: 80%;
+  }
+}
+

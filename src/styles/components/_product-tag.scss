@@ -1,0 +1,33 @@
+@use "../base/vars" as *;
+
+.product-tag {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: $radius-xxl;
+  font-weight: 600;
+  text-transform: uppercase;
+
+  &.tag-new {
+    background-color: $success-200;
+    color: $success-600;
+  }
+
+  &.tag-default {
+    background-color: $neutral-300;
+    color: $neutral-800;
+    display:none;
+  }
+
+  &.tag-comming_soon {
+    background-color: $secondary-100;
+    color: $accent-500;
+  }
+
+  &.tag-out_of_stock {
+    background-color: $neutral-200;
+    color: $neutral-800;
+  }
+}
