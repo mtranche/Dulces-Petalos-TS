@@ -209,19 +209,28 @@ DULCES-PETALOS/
 ## ✅ Funcionalidades implementadas
 
 - Listado de productos con buscador en tiempo real.
+
+- Borrado de productos duplicados en el listado.
+
 - Detalle de cada producto con imagen, descripción y ficha técnica.
+
 - Breadcrumb para navegación.
+
 - Responsive design (desktop y mobile).
+
 - Accesibilidad básica con etiquetas semánticas, roles y descripciones.
+
 - Estilos modulados con SASS y variables personalizadas.
-- Soporte para traducción con **i18next**.
+
+- Soporte para traducción con **i18next** (Por ahora español/inglés).
 
 ---
 
 ## 📌 API utilizada
 
-Todos los productos se obtienen desde las 2 API's proporcionadas
-Por defecto usamos la v2 que es más completa, pero se puede cambiar la ura a la v1 en el fetch.
+Todos los productos se obtienen desde las 2 API's proporcionadas.
+
+Por defecto usamos la v2 que es más completa, pero se puede cambiar la url la v1 en el fetch.
 
 
 ```bash
@@ -234,24 +243,6 @@ y
 GET https://dulces-petalos.jakala.es/api/v1/product
 GET https://dulces-petalos.jakala.es/api/v1/product/:id
 ```
-
----
-
-## ✅ Funcionalidades implementadas
-
-- Listado de productos con buscador en tiempo real.
-
-- Detalle de cada producto con imagen, descripción y ficha técnica.
-
-- Breadcrumb para navegación.
-
-- Traducción a español e inglés.
-
-- Responsive design (desktop y mobile).
-
-- Accesibilidad básica con etiquetas semánticas, roles y descripciones.
-
-- Estilos modulados con SASS y variables personalizadas.
 
 ---
 
