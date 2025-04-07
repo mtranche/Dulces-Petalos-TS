@@ -1,7 +1,11 @@
-# Tarea Técnica de Frontent de JAKALA
-## 🌸 Dulces Pétalos - Catálogo de Floristería
+# 🌸 Dulces Pétalos - Catálogo de Floristería
 
-Aplicación web desarrollada con **React + Vite** para mostrar el catálogo de productos de la floristería Dulces Pétalos.  
+Aplicación web desarrollada con **React + Vite +i18n y TypeScript** para mostrar el catálogo de productos de la floristería Dulces Pétalos. 
+
+Se puede consultar en español y en inglés.
+
+Puede usar tanto la versión v1 de la api como la v2.
+
 Incluye vista de listado y detalle de cada planta, con diseño responsive y accesible, siguiendo el mockup proporcionado en Figma.
 
 ---
@@ -9,10 +13,12 @@ Incluye vista de listado y detalle de cada planta, con diseño responsive y acce
 ## 🛠️ Tecnologías utilizadas
 - [nodejs](https://nodejs.org)
 - [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
 - [Vite](https://vitejs.dev/)
 - [SASS](https://sass-lang.com/)
 - [React Router](https://reactrouter.com/)
 - [Vitest](https://vitest.dev/) + [React Testing Library](https://testing-library.com/)
+ -[i18next para la gestión de traducciones](https://www.i18next.com/)
 
 ---
 
@@ -69,8 +75,8 @@ v20.x.x
 ### 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/mtranche/dulces-petalos.git
-cd dulces-petalos
+git clone git@github.com:mtranche/Dulces-Petalos-TS.git
+cd dulces-petalos_TS
 ```
 
 ### 2. Instalar dependencias
@@ -96,12 +102,6 @@ El proyecto utiliza Vitest. Para ejecutar los tests:
 npx vitest
 ```
 
-Para ver los tests en modo interactivo (watch mode):
-
-```bash
-npx vitest --watch
-```
-
 Para abrir la UI para ver los tests visualmente:
 
 ```bash
@@ -116,60 +116,124 @@ npx vitest --ui
 DULCES-PETALOS/
 │
 ├── public/                    → Archivos estáticos accesibles públicamente
-│   ├── img/                   → Imágenes visibles directamente desde el navegador
-│   │   ├── aloeVera.jpeg
-│   │   ├── petuniaAxillaris.jpeg
-│   │   └── pteridiumAquilinum.jpeg│  
-|   
-│
-├── src/                       → Código fuente del proyecto
+│   
+├── src/                      → Código fuente del proyecto
+│   ├── adapters/             → Adaptadores del dominio  
+│   │   ├── ProductAdapter.ts
+│   │   └── ProductAdapter.test.ts    
+│   │                
 │   ├── assets/                → Recursos internos como imágenes o SVGs (no públicas)
 │   │   ├── Logo.png
 │   │   ├── Search.png
 │   │   └── Vector.svg
-│   │
+
 │   ├── components/            → Componentes reutilizables de la UI
-│   │   ├── Breadcrumb.jsx
-│   │   ├── Card.jsx
-│   │   ├── Header.jsx
-│   │   ├── Search.jsx
-│   │   ├── Breadcrumb.test.jsx
-│   │   ├── Card.test.jsx
-│   │   ├── Header.test.jsx
-│   │   └── Search.test.jsx
+│   │   ├── Breadcrumb.tsx
+│   │   ├── Breadcrumb.test.tsx
+│   │   ├── Buttom.tsx
+│   │   ├── Buttom.test.tsx
+│   │   ├── Card.tsx
+│   │   ├── Card.test.tsx
+│   │   ├── ErrorMessage.tsx
+│   │   ├── ErrorMessage.test.tsx
+│   │   ├── Header.tsx
+│   │   ├── Header.test.tsx
+│   │   ├── Search.tsx
+│   │   ├── Search.test.tsx
+│   │   ├── LanguageSwitcher.tsx
+│   │   ├── LanguageSwitcher.test.tsx
+│   │   ├── Loader.tsx
+│   │   ├── Loader.test.tsx
+│   │   ├── ProductTag.tsx
+│   │   ├── ProductTag.test.tsx
+│   │   ├── Search.tsx
+│   │   └── Search.test.tsx
 │   │
-│   ├── data/
-│   │   └── fallbackData.json  → Datos de respaldo si la API falla
+│   ├── domain/                → Lógica relacionada con el dominio de los productos
+│   │   └──Product.tsx
+│   │
+│   ├── hooks/                 → Hooks personalizados
+│   │   ├── useFetchProductById.ts
+|   |   ├── useFetchProductById.test.ts
+│   │   ├── useFetchProducts.ts
+|   |   ├── useFetchProducts.test.ts
+│   │   ├──useFilteredProducts.ts
+|   |   └── useFilteredProducts.test.ts
+│   │
+│   ├── locals/                → Archivos de traducción para i18next
+│   │   ├── en.json
+│   │   └── es.json
 │   │
 │   ├── pages/                 → Vistas principales del sitio
-│   │   ├── ProductDetail.jsx
-│   │   ├── ProductList.jsx
-│   │   ├── ProductDetail.test.jsx
-│   │   └── ProductList.test.jsx
+│   │   ├── ProductDetail.tsx
+│   │   ├── ProductList.tsx
+│   │   ├── ProductDetail.test.tsx
+│   │   └── ProductList.test.tsx
 │   │
 │   ├── styles/                → Estilos SCSS organizados por tipo
 │   │   ├── base/              → Variables, resets, tipografía (_vars.scss)
 │   │   ├── components/        → Estilos de cada componente
 │   │   │   ├── _breadcrumb.scss
-│   │   │   ├── _card.scss
+│   │   │   ├── _button.scss
+|   |   |   ├── _card.scss
+│   │   │   ├── _error-message.scss
 │   │   │   ├── _header.scss
+│   │   │   ├── _language-switcher.scss
+│   │   │   ├── _loader.scss
+│   │   │   ├── _eproduct-tag.scss
 │   │   │   └── _search.scss
 │   │   ├── pages/             → Estilos por cada vista
 │   │   │   ├── _productDetail.scss
 │   │   │   └── _productList.scss
 │   │   └── main.scss          → Importa todos los estilos
 │   │
-│   ├── App.jsx                → Componente principal con enrutado
-│   ├── App.test.jsx           → Pruebas de App
-│   ├── index.scss             → Estilos globales base
-│   └── main.jsx               → Punto de entrada de React y Vite
+│   ├── types/   
+│   │   └── aseets.d.ts        → archivo de tipos
+│   │
+│   ├── App.tsx                → Componente principal con enrutado
+│   ├── App.test.tsx           → Pruebas de App
+│   ├── index.tsx              → Punto de entrada de React y Vite
+│   └── setupTests.ts          → Configuración de los tests con Vitest
 │
+├── favicon.ico                → icono del sitio
+├── i18n.ts                    → configuración de i18n
 ├── index.html                 → HTML base para montar React
-├── vite.config.js             → Configuración de Vite
+├── vite.config.ts             → Configuración de Vite
 ├── package.json               → Dependencias y scripts npm
-├── report.json                → Informe de cobertura de tests
+├── ysconfig.hson              → Configuración de TypeScript
 └── README.md                  → Documentación principal del proyecto
+```
 
+---
+
+## ✅ Funcionalidades implementadas
+
+- Listado de productos con buscador en tiempo real.
+- Detalle de cada producto con imagen, descripción y ficha técnica.
+- Breadcrumb para navegación.
+- Responsive design (desktop y mobile).
+- Accesibilidad básica con etiquetas semánticas, roles y descripciones.
+- Estilos modulados con SASS y variables personalizadas.
+- Soporte para traducción con **i18next**.
+
+---
+
+## 📌 API utilizada
+
+Todos los productos se obtienen desde las 2 API's proporcionadas
+Por defecto usamos la v2 que es más completa, pero se puede cambiar la ura a la v1 en el fetch.
+
+
+```bash
+GET https://dulces-petalos.jakala.es/api/v2/product
+GET https://dulces-petalos.jakala.es/api/v2/product/:id
+```
+y
+
+``` bash
+GET https://dulces-petalos.jakala.es/api/v1/product
+GET https://dulces-petalos.jakala.es/api/v1/product/:id
+```
 
 ---
 
@@ -181,21 +245,13 @@ DULCES-PETALOS/
 
 - Breadcrumb para navegación.
 
+- Traducción a español e inglés.
+
 - Responsive design (desktop y mobile).
 
 - Accesibilidad básica con etiquetas semánticas, roles y descripciones.
 
 - Estilos modulados con SASS y variables personalizadas.
-
----
-
-## 📌 API utilizada
-Todos los productos se obtienen desde la API proporcionada:
-
-```bash
-GET https://dulces-petalos.jakala.es/api/v1/product
-GET https://dulces-petalos.jakala.es/api/v1/product/:id
-```
 
 ---
 
